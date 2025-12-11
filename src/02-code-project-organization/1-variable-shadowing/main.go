@@ -14,6 +14,10 @@ func main() {
 
 func listing1() error {
 	var client *http.Client
+	/*
+	Происходит непреднамеренное затенение переменной client и тем не менее ошибки компиляции
+	не случается потому что значение переменной выше используется для логгирования вне условия
+	*/
 	if tracing {
 		client, err := createClientWithTracing()
 		if err != nil {
@@ -31,7 +35,9 @@ func listing1() error {
 	_ = client
 	return nil
 }
-
+// Есть два варианта решения этой проблемы.
+// Первые реинициализация, где делается client = c
+// Громоздкая хуйня как по мне
 func listing2() error {
 	var client *http.Client
 	if tracing {
@@ -51,7 +57,10 @@ func listing2() error {
 	_ = client
 	return nil
 }
-
+// Второй вариант это разделение создания и инициализации
+// Но тогда создавать переменную ошибки надо тоже отдельно, так как нельзя разделить
+// инициализацию и присвоение на два разных этапа раздельно для двух возвращаемых значений
+// Этот вариант мне нравится больше 
 func listing3() error {
 	var client *http.Client
 	var err error
@@ -71,6 +80,8 @@ func listing3() error {
 	return nil
 }
 
+// Второй вариант позволяет упрощать flow в момент когда мы конструируем поток программы 
+// в зависимости от каких то условий
 func listing4() error {
 	var client *http.Client
 	var err error
