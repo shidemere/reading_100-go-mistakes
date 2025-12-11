@@ -1,0 +1,116 @@
+site_name: 100 Go Mistakes and How to Avoid Them
+site_url: https://100go.co
+repo_name: teivah/100-go-mistakes
+theme:
+  name: material
+  custom_dir: overrides
+  favicon: img/Go-Logo_LightBlue.svg
+  language: en
+  logo: img/Go-Logo_White.svg
+  icon:
+    repo: fontawesome/brands/github
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - search.highlight
+    - search.share
+    - search.suggest
+    - content.code.copy
+    - navigation.expand
+#    - navigation.instant -- Navigation is too slow
+    - navigation.sections
+    - announce.dismiss
+#    - navigation.tracking
+    - toc.follow
+    - content.code.annotate
+    - content.tooltips
+  palette:
+    # Palette toggle for light mode
+    - scheme: default
+      toggle:
+        icon: material/brightness-7 
+        name: Switch to dark mode
+      primary: cyan
+      accent: deep orange
+    # Palette toggle for dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+      primary: blue grey
+      accent: teal
+repo_url: https://github.com/teivah/100-go-mistakes
+plugins:
+  - search
+  - glightbox
+  - social:
+      cards_layout_options:
+        logo: img/cover.png
+extra:
+  analytics:
+    provider: google
+    property: G-HMY1HYDM93
+  alternate:
+    - name: 🇬🇧 English
+      link: /
+      lang: en
+    - name: 🇨🇳 简体中文
+      link: /zh/
+      lang: zh
+    - name: 🇯🇵 日本語
+      link: /ja/
+      lang: ja
+    - name: 🇧🇷 Português Brasileiro
+      link: /pt-br/
+      lang: pt-br
+  social:
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/teivah
+  status:
+    new: New content
+extra_css:
+  - stylesheets/extra.css
+nav:
+    - Go Mistakes:
+      - index.md
+      - Full Sections:
+        - 5-interface-pollution.md
+        - 9-generics.md
+        - 20-slice.md
+        - 28-maps-memory-leaks.md
+        - 56-concurrency-faster.md
+        - 89-benchmarks.md
+        - 92-false-sharing.md
+        - 98-profiling-execution-tracing.md
+      - Translations:
+        - '🇨🇳 简体中文': zh.md
+        - '🇯🇵 日本語': ja.md
+        - '🇧🇷 Português Brasileiro': pt-br.md
+    - Book Details:
+      - book.md
+      - chapter-1.md
+      - external.md
+    - 'The Story Behind 100 Go Mistakes': https://www.thecoder.cafe/p/100-go-mistakes
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.snippets:
+      auto_append:
+        - includes/abbreviations.md
+  - pymdownx.superfences
+  - tables
+  - attr_list
+  - md_in_html
+  - footnotes
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+copyright: Copyright &copy; 2022 - 2024 Teiva Harsanyi
